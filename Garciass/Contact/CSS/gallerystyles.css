@@ -1,0 +1,15 @@
+#pic_tile {
+	float: left;
+	margin-left: 1in;
+	margin-bottom: 1in;
+}
+
+body {
+	margin-left: 2in;
+	margin-right: 2in;
+}
+
+h4 {
+	text-align: center;
+	font-size: 48px;
+}

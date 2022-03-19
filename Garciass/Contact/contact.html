@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Garcia's Barbershop</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+<link href="test.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+<link href="css/gallerystyles.css" type="text/css" rel="stylesheet"/>
+
+<body>
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="../Home/index.html" class="brand-logo">Garcia's</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="../Home/index.html">Home</a></li>
+        <li><a href="">Contact</a></li>
+        <li><a href="../Gallery/gallery.html">Gallery</a></li>
+        <li><a href="../Crew/crew.html">Meet the Crew</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="../Home/index.html">Home</a></li>
+        <li><a href="">Contact</a></li>
+        <li><a href="../Gallery/gallery.html">Gallery</a></li>
+        <li><a href="../Crew/crew.html">Meet the Crew</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">Menu</i></a>
+    </div>
+  </nav>
+<div id="areWeOpen"></div>
+  <script type="text/javascript">
+      (function checkIfOpen() 
+      {
+        var now = new Date();
+        var day = now.getDay();
+        var hour = now.getHours();
+      
+        var otime = 9;
+        var ctime = 18;
+        var msg = "We open at "+otime+"am";
+        var until = "";
+        var closed = "We are closed for the day";
+      
+        if (day >= 2 && day <= 5) 
+        {
+          ctime = 18, until = "6pm"
+          if (hour >= otime && hour <= ctime) {
+            msg = "We are open until " + until
+            document.getElementById('areWeOpen').textContent = msg}
+          else {
+            document.getElementById('areWeOpen').textContent = closed
+          }
+        } else if (day == 6) {
+          ctime = 15, until = "3pm"
+          if (hour >= otime && hour <= ctime) {
+            msg = "We are open until " + until
+            document.getElementById('areWeOpen').textContent = msg
+          }
+          else {
+            document.getElementById('areWeOpen').textContent = closed
+          }
+        } else {
+          document.getElementById('areWeOpen').textContent = closed
+        }
+
+    })();
+  </script>
+<img src="images/building.jpg" width="1518px">
+
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Business Hours</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-4">Monday: Closed</a></li>
+            <li><a class="grey-text text-lighten-4">Tuesday: 09:00 - 18:00</a></li>
+            <li><a class="grey-text text-lighten-4">Wednesday: 09:00 - 18:00</a></li>
+            <li><a class="grey-text text-lighten-4">Thursday: 09:00 - 18:00</a></li>
+            <li><a class="grey-text text-lighten-4">Friday: 09:00 - 18:00</a></li>
+            <li><a class="grey-text text-lighten-4">Saturday: 09:00 - 15:00</a></li>
+            <li><a class="grey-text text-lighten-4">Sunday: Closed</a></li>
+          </ul>
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Shop Location</h5>
+          <ul>
+            <li><a class="white-text" href="#!">10 Seneca St.</a></li>
+            <li><a class="white-text" href="#!">Hornell, New York 14843</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect with us</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Phone:</a></li>
+            <li><a class="white-text" href="#!">(585) 403-0587</a></li><br />
+            <li><a class="white-text" href="#!">Email:</a></li>
+            <li><a class="white-text" href="#!">Info@Garcia's.com</a><br /></li>
+            <a href="https://www.facebook.com/JGarciasBarbershop/"><img src="images/facebook.jpg"></a>
+            <a href="https://www.instagram.com/dcady9/"><img src="images/instagram.jpg"></a>
+            <img src="images/gplus-32.png" width="56px" height="56px">
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="brown-text text-lighten-3">Meissa and Kaleb</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>

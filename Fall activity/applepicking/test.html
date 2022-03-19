@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+</head>
+
+<link href="test.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+
+<body>
+	<div id="areWeOpen"></div>
+	<script type="text/javascript">
+	    (function checkIfOpen() 
+	    {
+		    var now = new Date();
+		    var day = now.getDay();
+		    var hour = now.getHours();
+		  
+		    var otime = 9;
+		    var ctime = 18;
+		    var msg = "We open at "+otime+"am";
+		    var until = "";
+		    var closed = "We are closed for the day";
+		  
+		    if (day >= 2 && day <= 5) 
+		    {
+		    	ctime = 18, until = "6pm"
+		    	if (hour >= otime && hour <= ctime) {
+		    		msg = "We are open until " + until
+		    		document.getElementById('areWeOpen').textContent = msg}
+		    	else {
+		    		document.getElementById('areWeOpen').textContent = closed
+		    	}
+		    } else if (day == 6) {
+		    	ctime = 15, until = "3pm"
+		    	if (hour >= otime && hour <= ctime) {
+		    		msg = "We are open until " + until
+		    		document.getElementById('areWeOpen').textContent = msg
+		    	}
+		    	else {
+		    		document.getElementById('areWeOpen').textContent = closed
+		    	}
+		    } else {
+		    	document.getElementById('areWeOpen').textContent = closed
+		    }
+
+		})();
+	</script>
+
+
+
+</body>
+
+</html>

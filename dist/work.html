@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <?php
+
+    require "models/database.php";
+    
+    $stmt = $var_db->prepare('SELECT * FROM tblmyprojects');
+    
+    $stmt->execute();
+    
+    ?>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+    crossorigin="anonymous">
+
+  <link rel="stylesheet" href="css/main.css">
+  <title>View My Work</title>
+</head>
+
+<body>
+  <header>
+    <div class="menu-btn">
+      <div class="btn-line"></div>
+      <div class="btn-line"></div>
+      <div class="btn-line"></div>
+    </div>
+
+    <nav class="menu">
+      <div class="menu-branding" >
+        <div class="portrait"></div>
+      </div>
+      <ul class="menu-nav">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="about.html" class="nav-link">
+            About Me
+          </a>
+        </li>
+        <li class="nav-item current">
+          <a href="work.html" class="nav-link">
+            My Work
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="contact.html" class="nav-link">
+            How To Reach Me
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="work">
+    <h1 class="lg-heading">
+      My
+      <span class="text-secondary">Work</span>
+    </h1>
+    <h2 class="sm-heading">
+      Check out some of my projects...
+    </h2>
+  
+    <div id="index-banner">
+        <div class="container">  
+          <div class="body white">
+         <div class="container">
+      <div class="section">
+        <div class="row">
+            <?php foreach($stmt as $indStmt) : ?> 
+              <div class="col s12 m6">
+                 <div class="card large blue">
+     <div class="card blue">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img src="<?php echo $indStmt['picture'];?>">
+      </div>
+      <div class="card-content">
+        <span class="card-title activator white-text"><i class="material-icons right">more_vert</i><?php echo $indStmt['Name'];?></span>
+        <p><a href="<?php echo $indStmt['path'];?>" target="_blank" class="white-text">view my site</a></p>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+        <p><?php echo $indStmt['description'];?></p>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+    <?php endforeach; ?>
+   
+        <!--   Icon Section   -->
+      <script>
+        function searchname(name) {
+          if (name.length==0)
+          {
+            document.getElementById('searchResults').innerHTML = "";
+            return;
+          }
+          else
+          {
+            var xmlHTTP;
+            if (window.XMLHttpRequest)
+            {
+              xmlHTTP = new XMLHttpRequest();
+            }
+            else
+            {
+              xmlHTTP = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlHTTP.onreadystatechange = function()
+            {
+              if (this.readyState == 4 && this.status == 200)
+              {
+                document.getElementById('searchResults').innerHTML = this.responseText;
+              }
+            };
+            xmlHTTP.open("GET", "models/mydataSearch.php?q=" + name, true);
+            xmlHTTP.send();
+          }
+        }
+      </script>
+      <div class="row">
+          <div class="col">
+          <form class="form-inline active-pink-4 white-text">
+            <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search for a name" aria-label="Search" onkeyup="searchname(this.value)" style="color: white;">
+            <i class="fa fa-search" aria-hidden="true" style="color: white;"></i>
+          </form>
+          <div id="searchResults" style="color: white;"><!--Search Results--></div>
+          </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+
+  </main>
+
+  <footer id="main-footer">
+    Copyright &copy; 2018
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+#areWeOpen {
+	color: black;
+	background-color: gray;
+	border-radius: 5px;
+	font-size: 22px;
+	width: 252px;
+	margin-left: 4in;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+body{
+	background-color: orange;
+}
